@@ -1,0 +1,15 @@
+doctype html
+html(lang="ko")
+  head
+    block title
+      title plitri / 플리트리
+    link(rel="stylesheet", href="./style.css", type="text/css")
+    meta(charset="utf-8")
+  body
+    //- #MainHeader
+    block vars 
+      //- http://stackoverflow.com/questions/12646451/how-to-pass-variables-between-jade-templates
+      - var nowMenu = "index";
+    include ./head.jade
+    block content
+    include ./foot.jade

@@ -1,0 +1,30 @@
+*, body, p, div {margin:0; padding:0;}
+
+/* header */
+#MainHeader {
+  background:black;
+  color:white;
+  padding:0.5em;
+}
+#MainHeader a {
+  color:white;
+  text-decoration:none;
+}
+#MainHeader a:hover {
+  text-decoration:underline;
+}
+#MainHeader .title {
+  font-size:1.5em;
+  text-decoration:none;
+}
+
+#MainHeader nav ul li {
+  display:inline; display:inline-block;
+}
+#MainHeader nav ul li a{
+  padding:0.5em;
+}
+
+#MainHeader nav ul li .nowMenu {
+  font-weight:bold;
+}
