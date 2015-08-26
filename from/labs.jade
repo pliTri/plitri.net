@@ -1,0 +1,33 @@
+extends ./common/layout.jade
+
+block vars
+  - var nowMenu = "labs";
+block title
+  title plitri - Labs
+block content
+  h2 실험실
+  p 컨셉 실험, 혹은 연습 목적으로 만든 게임들입니다. 미완성된 게임이 많습니다.
+  h3 연도미상
+  ul
+    li 탄막
+      ul
+        li Construct 2 는 탄막 만들기엔 영 안좋습니다...
+        li [정상 플레이 불가]&nbsp;
+          a(href="/html5_games/labs/danmaku/a_danmaku_game/") 탄막 템플릿 제작 프로젝트
+        li [플레이 가능]&nbsp;
+          a(href="/html5_games/labs/danmaku/dandanSquare/") 흥미 본위의 탄막 제작
+        li [정상 플레이 불가]&nbsp;
+          a(href="/html5_games/labs/danmaku/JuicyBullet/") Juicy Bullet
+    li 플랫포머
+      ul
+        li 아이워너 시리즈를 흉내내보려는 느낌으로 만들었었습니다. 별 특징이 없어서 버려짐.
+        li [플레이 가능]&nbsp;
+          a(href="/html5_games/labs/platformer/") 웹에서 플레이
+    li: a(href="/html5_games/labs/avoid_screen_prototype/") 화면피하기 프로토타입
+    li: a(href="/html5_games/labs/Cative_2") Cative 2
+    li 엔드리스 러너 (쿠키런, 윈드런 등과 비슷한 게임)
+      ul
+        li 패턴 기반 랜덤 생성 엔드리스 러너입니다.
+        li 웹에 소스를 공개해뒀습니다.
+        li: a(href="/html5_games/labs/endless_runner")
+    li 더 많은데 차마 시간이 없어서 못 적겠다... 나중에 업데이트합니다.

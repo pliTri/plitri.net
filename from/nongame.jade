@@ -1,0 +1,17 @@
+extends ./common/layout.jade
+
+block vars
+  - var nowMenu = "nongame";
+block title
+  title plitri - Non-Game
+block content
+  h2 게임이 아닌 제작물
+  p 게임툴로 게임이 아닌 것을 만들기도 합니다. 그런 것들을 모았습니다.
+  ul
+    li 지름신 강림! 지름 도우미 v1.5
+      ul
+        li 두 가지중 하나를 랜덤 선택합니다. 20초동안의 줄다리기로 결정되며, 이 과정이 재밌도록 만들었습니다.
+        li: a(href="/nongame/zirum15") 웹에서 실행
+        li
+          a(href="https://play.google.com/store/apps/details?id=net.plitri.zirum15") 구글 플레이
+          ul: li Apache Cordova 업데이트를 안 했기 때문에 내려갈수도 있습니다
