@@ -11,6 +11,8 @@ html(lang="ko")
       //- http://stackoverflow.com/questions/12646451/how-to-pass-variables-between-jade-templates
       - var nowMenu = "index";
     include ./head.jade
+    div.container.belowMenu
+      block belowMenu
     div.container.content
       block content
     include ./foot.jade
