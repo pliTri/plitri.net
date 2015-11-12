@@ -7,6 +7,31 @@ and (max-device-width : 480px) {
   body {font-size: 4vmin;}
 }
 
+/* common */
+input[type="text"], input[type="password"], input[type="url"], textarea {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  padding: .5em;
+  padding: calc(.5em - 1px);
+  font-size: 1em;
+}
+
+button, input[type="text"], input[type="password"], input[type="url"] {
+  border-radius: 0;
+}
+button, input[type="button"], input[type="submit"] {
+  border: none; /*clearing*/
+  background-color: #ddd;
+  border: none;
+  padding: .5em;
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background-color: #f0f0f0;
+  text-decoration: underline;
+}
+button:active, input[type="button"]:active, input[type="submit"]:active {background-color: #aaa}
+
+
 
 /* header */
 
@@ -109,3 +134,27 @@ div.belowMenu {border-bottom:1px solid gray; margin-bottom:1em; overflow: hidden
 .content section .trailer .date {float: left;}
 .content section .trailer .category {float: right;}
 .content section article {margin-top: 1em; margin-bottom: 1em;}
+
+/** paging **/
+.paging {text-align: center; text-decoration: none;}
+.paging .btn {line-height: 2em; width:2em; height:2em; text-align: center;
+  display: inline; display: inline-block;}
+.paging .selected {
+  display: block;
+  font-weight: bold;
+}
+.paging a {text-decoration: none;}
+.paging a:hover {text-decoration: underline;}
+.paging .no-more-prev, .paging .no-more-next
+{
+  visibility: hidden;
+}
+
+/** comment **/
+.commentWrite ul {list-style: none;  overflow: hidden;}
+.commentWrite ul li {float:left; margin-right: .5em;}
+.commentWrite textarea, .commentWrite .writeButton {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}

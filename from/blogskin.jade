@@ -18,8 +18,8 @@ block content
         s_list_rep
           li
             span.date [##_list_rep_regdate_##]&nbsp;
-            a(href="[##_list_rep_link_##]") [##_list_rep_title_##]&nbsp;
-            span.count [##_list_rep_rp_cnt_##]
+            a(href="[##_list_rep_link_##]") [##_list_rep_title_##]
+            span.count &nbsp;[##_list_rep_rp_cnt_##]
   s_rplist
     section
       h2 검색어 '[##_rplist_conform_##]'로 [##_rplist_count_##]개의 댓글을 찾았습니다.
@@ -27,9 +27,33 @@ block content
         s_rplist_rep
           li
             span.date [##_rplist_rep_regdate_##]&nbsp;
-            a(href="[##_rplist_rep_link_##]") [##_rplist_rep_title_##]&nbsp;
+            a(href="[##_rplist_rep_link_##]") [##_rplist_rep_title_##]
             span.count [##_rplist_rep_rp_cnt_##]&nbsp;
-            span.name [##_rplist_rep_name_##]
+            span.name &nbsp;[##_rplist_rep_name_##]
+  s_guest
+    .comment.guest
+      h2 방명록
+      //- 글쓰기
+      .commentWrite.guest
+        s_guest_member
+          s_guest_form
+            ul
+              li
+                input(type="text", name="[##_guest_input_name_##]", value="[##_guest_name_##]", placeholder="이름")
+                label(for="name") &nbsp;: 이름
+              li
+                input(type="password", name="[##_guest_input_password_##]", value="[##_guest_password_##]", placeholder="암호")
+                label(for="password") &nbsp;: 암호
+              li
+                input(type="url", name="[##_guest_input_homepage_##]", value="[##_guest_homepage_##]", placeholder="홈페이지")
+                label(for="homepage") &nbsp;: 홈페이지
+        textarea(name="[##_guest_textarea_body_##]", placeholder="여기에 본문을 적으세요")
+        input.writeButton(type="submit", value="작성", onclick="[##_guest_onclick_submit_##]")
+      .commentList.guest
+        ol
+          s_guest_rep
+            li(id="[##_guest_rep_id_##]")
+              section(class="[##_guest_rep_class_##]")
   s_article_rep
     section
       h2: a(href="[##_article_rep_link_##]") [##_article_rep_title_##]
@@ -37,5 +61,11 @@ block content
         span.date [##_article_rep_date_##]
         a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
       article [##_article_rep_desc_##]
+  s_paging
+    .paging
+      a.btn([##_prev_page_##], class="[##_no_more_prev_##]") ◁
+      s_paging_rep
+        a.btn([##_paging_rep_link_##], class="num") [##_paging_rep_link_num_##]
+      a.btn([##_next_page_##], class="[##_no_more_next_##]") ▷
 block footer
   div blog is powered by <a href="http://www.tistory.com/">Tistory</a>.
