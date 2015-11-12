@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /** blog menu **/
 
-div.belowMenu {border-bottom:1px solid gray; margin-bottom:1em; overflow: hidden;}
+.belowMenu {border-bottom:1px solid gray; margin-bottom:1em; overflow: hidden;}
 .belowMenu nav.blogNav {text-align: right; }
 .belowMenu nav.blogNav ul {list-style: none; float:right;}
 .belowMenu nav.blogNav ul li {display: inline; display:inline-block;}
@@ -129,11 +129,15 @@ div.belowMenu {border-bottom:1px solid gray; margin-bottom:1em; overflow: hidden
 .content a {color: black;}
 .content a:hover {color: grey;}
 
-.content section {margin-bottom:1em;}
-.content section .trailer {overflow: hidden; margin-bottom: 4em;}
-.content section .trailer .date {float: left;}
-.content section .trailer .category {float: right;}
-.content section article {margin-top: 1em; margin-bottom: 1em;}
+.content section.cage {margin-bottom:1em;}
+.content section.mainArticle header .trailer {overflow: hidden; margin-bottom: .5em;}
+.content section.mainArticle header .trailer .date {float: left;}
+.content section.mainArticle header .trailer .category {float: right;}
+.content section.mainArticle article {margin-top: 1em; margin-bottom: 1em;}
+.content section.mainArticle .tags {overflow: hidden;}
+.content section.mainArticle .tags .tagFlag {background: black; color: white; padding: .3em; margin-right: .5em; border-radius: .5em; display: inline-block;}
+
+.content section.article .actionTrail {text-align: right;}
 
 /** paging **/
 .paging {text-align: center; text-decoration: none;}
@@ -157,4 +161,30 @@ div.belowMenu {border-bottom:1px solid gray; margin-bottom:1em; overflow: hidden
   display: block;
   width: 100%;
   box-sizing: border-box;
+}
+
+/** content body **/
+.commentList {margin-top: 1em;}
+.commentList ol {list-style: none; margin-bottom: 2em;}
+.commentList .commentHeader {overflow: hidden; border-bottom: 1px solid gray;}
+.commentList .commentHeader img {height: 1.4em; width: auto;}
+.commentList .commentHeader .name {font-size: 1.4em;}
+.commentList .commentHeader .name, .commentList .commentHeader .date {margin-right: 1em;}
+.commentList .commentHeader .trailer {float: right;}
+.commentList ol ol {list-style: none; margin-left: 2em;}
+
+/** content body additional style **/
+/* .commentList .rp_admin, .commentList .guest_admin */
+.commentList .rp_admin .name::after, .commentList .guest_admin .name::after {
+  content: ' 👑 ';
+  color: grey;
+  font-size: .8em;
+}
+.commentList .rp_secret p, .commentList .guest_secret p {
+  color: grey;
+}
+.commentList .rp_secret .name::after, .commentList .guest_secret .name::after {
+  content: ' 🔒 ';
+  color: grey;
+  font-size: .8em;
 }
