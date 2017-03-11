@@ -4,13 +4,20 @@ block vars
   - var nowMenu = "blog";
 block title
   title [##_title_##] :: [##_page_title_##]
+block body_start
+  <s_t3>
+block body_end
+  </s_t3>
 block belowMenu
-  s_t3
     .search
       s_search
         input(type="text", name="[##_search_name_##]", value="[##_search_text_##]", onkeypress="if (event.keyCode === 13) { [##_search_onclick_submit_##] }", class="submit", placeholder="검색어를 입력하세요")
         input(value="검색" type="button" onclick="[##_search_onclick_submit_##]" class="submit")
     nav.blogNav [##_blog_menu_##]
+      .category
+        a(href="#category" title="카테고리") 카테고리
+        .
+          [##_category_list_##]
 block content
   s_list
     section.cage
