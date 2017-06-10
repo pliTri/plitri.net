@@ -7,10 +7,14 @@ html(lang="ko")
     meta(charset="utf-8")
   body
     //- #MainHeader
+    block body_start
     block vars 
       //- http://stackoverflow.com/questions/12646451/how-to-pass-variables-between-jade-templates
       - var nowMenu = "index";
     include ./head.jade
+    div.container.belowMenu
+      block belowMenu
     div.container.content
       block content
     include ./foot.jade
+    block body_end

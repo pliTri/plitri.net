@@ -7,7 +7,34 @@ and (max-device-width : 480px) {
   body {font-size: 4vmin;}
 }
 
+/* common */
+input[type="text"], input[type="password"], input[type="url"], textarea {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  padding: .5em;
+  padding: calc(.5em - 1px);
+  font-size: 1em;
+}
+
+button, input[type="text"], input[type="password"], input[type="url"] {
+  border-radius: 0;
+}
+button, input[type="button"], input[type="submit"] {
+  border: none; /*clearing*/
+  background-color: #ddd;
+  border: none;
+  padding: .5em;
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background-color: #f0f0f0;
+  text-decoration: underline;
+}
+button:active, input[type="button"]:active, input[type="submit"]:active {background-color: #aaa}
+
+
+
 /* header */
+
 #MainHeader {
   background:black;
   color:white;
@@ -41,6 +68,8 @@ and (max-device-width : 480px) {
 
 #MainHeader h1 {margin: .5em; padding: 0;}
 
+/* body general */
+
 .container {
   max-width:1024px; margin: 0 auto;
 }
@@ -50,8 +79,14 @@ and (max-device-width : 480px) {
   padding: 1em;
 }
 
+
+/** footer **/
+
 #mainFooter {border-top: 1px solid gray;}
 #mainFooter div.container {padding: 1em;}
+
+
+/** article common **/
 
 h1, h2, h3, h4, h5, h6, p {
   margin-bottom: .7em;
@@ -63,8 +98,138 @@ h1, h2, h3, h4, h5, h6 {
 
 .container ul ul {margin-left:1em; margin-bottom: .5em;}
 
-/*.content ul li {
-  list-style-type: '- ';
-}*/
 
-.content img {max-width: 100%;}
+/** blog menu **/
+
+.belowMenu {border-bottom:1px solid gray; margin-bottom:1em; overflow: hidden;}
+.belowMenu nav.blogNav { text-align: right; overflow: hidden; }
+.belowMenu nav.blogNav > ul { list-style: none; display: inline; display: inline-block; }
+.belowMenu nav.blogNav ul li {display: inline; display:inline-block;}
+.belowMenu nav.blogNav ul li a {display: inline-block; padding:.5em;}
+.belowMenu nav.blogNav a {color: black; text-decoration: none;}
+.belowMenu nav.blogNav a:hover {color: gray; text-decoration: underline;}
+
+.belowMenu .search {float:left;}
+.belowMenu .search input[type="text"], .belowMenu .search input[type="button"] {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  padding: .5em;
+  padding: calc(.5em - 1px);
+  font-size: 1em;
+}
+.belowMenu .search input[type="button"] {
+  border: none;
+}
+.belowMenu .search input[type="button"]:hover {
+  text-decoration: underline;
+}
+
+/* blog Menu category */
+.belowMenu nav.blogNav .category {
+  display: inline; display: inline-block;
+}
+.belowMenu nav.blogNav .category > a {
+  display: inline; display: inline-block;
+  padding: 0.5em;
+}
+.belowMenu nav.blogNav .category ul {
+  display: none;
+  text-align:left;
+  list-style-type: circle;
+  list-style-position: inside;
+}
+.belowMenu nav.blogNav .category:hover ul,
+.belowMenu nav.blogNav .category:focus ul {
+  display: block;
+}
+
+.belowMenu nav.blogNav .category ul li,
+.belowMenu nav.blogNav .category ul li a {
+  overflow: hidden;
+  display: block;
+}
+.belowMenu nav.blogNav .category ul li a::before {
+  content: '-';
+}
+
+/** blog article **/
+
+.content a {color: black;}
+.content a:hover {color: grey;}
+
+.content section.cage {margin-bottom:1em;}
+.content section.mainArticle header .trailer {overflow: hidden; margin-bottom: .5em;}
+.content section.mainArticle header .trailer .date {float: left;}
+.content section.mainArticle header .trailer .category {float: right;}
+.content section.mainArticle article {margin-top: 1em; margin-bottom: 1em;}
+.content section.mainArticle .tags {overflow: hidden;}
+.content section.mainArticle .tags .tagFlag {background: black; color: white; padding: .3em; margin-right: .5em; border-radius: .5em; display: inline-block;}
+
+.content section.article .actionTrail {text-align: right;}
+
+/** article special **/
+.content section.article code {
+  padding: 1em; background: #eee;
+  font-family: 'D2Coding', 'Consolas', monospace;
+  overflow-x: scroll;
+  display: block;
+}
+code pre, pre code {
+  font-family: inherit
+}
+.content section.article code::before {
+  content: '<code>';
+  display: block;
+  margin-top: -1em;
+  font-size: 2em;
+}
+
+/** paging **/
+.paging {text-align: center; text-decoration: none;}
+.paging .btn {line-height: 2em; width:2em; height:2em; text-align: center;
+  display: inline; display: inline-block;}
+.paging .selected {
+  display: block;
+  font-weight: bold;
+}
+.paging a {text-decoration: none;}
+.paging a:hover {text-decoration: underline;}
+.paging .no-more-prev, .paging .no-more-next
+{
+  visibility: hidden;
+}
+
+/** comment **/
+.commentWrite ul {list-style: none;  overflow: hidden;}
+.commentWrite ul li {float:left; margin-right: .5em;}
+.commentWrite textarea, .commentWrite .writeButton {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/** content body **/
+.commentList {margin-top: 1em;}
+.commentList ol {list-style: none; margin-bottom: 2em;}
+.commentList .commentHeader {overflow: hidden; border-bottom: 1px solid gray;}
+.commentList .commentHeader img {height: 1.4em; width: auto;}
+.commentList .commentHeader .name {font-size: 1.4em;}
+.commentList .commentHeader .name, .commentList .commentHeader .date {margin-right: 1em;}
+.commentList .commentHeader .trailer {float: right;}
+.commentList ol ol {list-style: none; margin-left: 2em;}
+
+/** content body additional style **/
+/* .commentList .rp_admin, .commentList .guest_admin */
+.commentList .rp_admin .name::after, .commentList .guest_admin .name::after {
+  content: ' 👑 ';
+  color: grey;
+  font-size: .8em;
+}
+.commentList .rp_secret p, .commentList .guest_secret p {
+  color: grey;
+}
+.commentList .rp_secret .name::after, .commentList .guest_secret .name::after {
+  content: ' 🔒 ';
+  color: grey;
+  font-size: .8em;
+}

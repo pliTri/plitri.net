@@ -1,0 +1,163 @@
+extends ./common/layout.jade
+
+block vars
+  - var nowMenu = "blog";
+block title
+  title [##_title_##] :: [##_page_title_##]
+block body_start
+  <s_t3>
+block body_end
+  </s_t3>
+block belowMenu
+    .search
+      s_search
+        input(type="text", name="[##_search_name_##]", value="[##_search_text_##]", onkeypress="if (event.keyCode === 13) { [##_search_onclick_submit_##] }", class="submit", placeholder="검색어를 입력하세요")
+        input(value="검색" type="button" onclick="[##_search_onclick_submit_##]" class="submit")
+    nav.blogNav [##_blog_menu_##]
+      .category
+        a(href="#category" title="카테고리") 카테고리
+        .
+          [##_category_list_##]
+block content
+  s_list
+    section.cage
+      h2 검색어 '[##_list_conform_##]'로 [##_list_count_##]개의 글을 찾았습니다.
+      ol
+        s_list_rep
+          li
+            span.date [##_list_rep_regdate_##]&nbsp;
+            a(href="[##_list_rep_link_##]") [##_list_rep_title_##]
+            span.count &nbsp;[##_list_rep_rp_cnt_##]
+  s_rplist
+    section.cage
+      h2 검색어 '[##_rplist_conform_##]'로 [##_rplist_count_##]개의 댓글을 찾았습니다.
+      ol
+        s_rplist_rep
+          li
+            span.date [##_rplist_rep_regdate_##]&nbsp;
+            a(href="[##_rplist_rep_link_##]") [##_rplist_rep_title_##]
+            span.count [##_rplist_rep_rp_cnt_##]&nbsp;
+            span.name &nbsp;[##_rplist_rep_name_##]
+  s_guest
+    section.comment.guest.cage
+      h2 방명록
+      //- 글쓰기
+      .commentWrite.guest
+        ul
+          s_guest_member
+            s_guest_form
+              li
+                input(type="text", name="[##_guest_input_name_##]", value="[##_guest_name_##]", placeholder="이름")
+                label(for="name") &nbsp;: 이름
+              li
+                input(type="password", name="[##_guest_input_password_##]", value="[##_guest_password_##]", placeholder="암호")
+                label(for="password") &nbsp;: 암호
+              li
+                input(type="url", name="[##_guest_input_homepage_##]", value="[##_guest_homepage_##]", placeholder="홈페이지")
+                label(for="homepage") &nbsp;: 홈페이지
+            li
+              input(type="checkbox", name="[##_guest_input_is_secret_##]")
+              label(for="secret") &nbsp;: 비밀글
+        textarea(name="[##_guest_textarea_body_##]", placeholder="여기에 본문을 적으세요")
+        input.writeButton(type="submit", value="작성", onclick="[##_guest_onclick_submit_##]")
+      .commentList.guest
+        ol
+          s_guest_rep
+            li(id="[##_guest_rep_id_##]")
+              article(class="[##_guest_rep_class_##]")
+                .commentHeader
+                  span.name [##_guest_rep_name_##]
+                  span.date [##_guest_rep_date_##]
+                  span.trailer
+                    a(href="#" onclick="[##_guest_rep_onclick_delete_##]") 수정,삭제
+                    span  / 
+                    a(href="#" onclick="[##_guest_rep_onclick_reply_##]") 답글
+                p [##_guest_rep_desc_##]
+              s_guest_reply_container
+                ol
+                  s_guest_reply_rep
+                    li(id="[##_guest_rep_id_##]")
+                      article(class="[##_guest_rep_class_##]")
+                        .commentHeader
+                          span.name [##_guest_rep_name_##]
+                          span.date [##_guest_rep_date_##]
+                          span.trailer
+                            a(href="#" onclick="[##_guest_rep_onclick_delete_##]") 수정,삭제
+                            span &nbsp;/&nbsp;
+                            a(href="#" onclick="[##_guest_rep_onclick_reply_##]") 답글
+                        p [##_guest_rep_desc_##]
+  s_article_rep
+    section.article.cage
+      section.mainArticle
+        header
+          h2: a(href="[##_article_rep_link_##]") [##_article_rep_title_##]
+          .trailer
+            span.date [##_article_rep_date_##]
+            a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
+        article [##_article_rep_desc_##]
+        s_tag_label
+          .tags
+            span.tagFlag 태그
+            span [##_tag_label_rep_##]
+      .actionTrail
+        a(href="trackback", onclick="[##_article_rep_tb_link_##]")
+          s_tb_count 트랙백 <span class="cnt">[##_article_rep_tb_cnt_##]</span>개
+        span &nbsp;/&nbsp;
+        a(href="trackback", onclick="[##_article_rep_rp_link_##]")
+          s_rp_count 댓글 <span class="cnt">[##_article_rep_rp_cnt_##]</span>개
+      s_rp
+        section.comment.articleComment
+          h3 댓글
+          //- 글쓰기
+          .commentWrite.articleComment
+            ul
+              s_rp_member
+                s_rp_form
+                  li
+                    input(type="text", name="[##_rp_input_name_##]", value="[##_rp_name_##]", placeholder="이름")
+                    label(for="name") &nbsp;: 이름
+                  li
+                    input(type="password", name="[##_rp_input_password_##]", value="[##_rp_password_##]", placeholder="암호")
+                    label(for="password") &nbsp;: 암호
+                  li
+                    input(type="url", name="[##_rp_input_homepage_##]", value="[##_rp_homepage_##]", placeholder="홈페이지")
+                    label(for="homepage") &nbsp;: 홈페이지
+                li
+                  input(type="checkbox", name="[##_rp_input_is_secret_##]")
+                  label(for="secret") &nbsp;: 비밀글
+            textarea(name="[##_rp_textarea_body_##]", placeholder="여기에 본문을 적으세요")
+            input.writeButton(type="submit", value="작성", onclick="[##_rp_onclick_submit_##]")
+          .commentList.articleComment
+            ol
+              s_rp_rep
+                li(id="[##_rp_rep_id_##]")
+                  article(class="[##_rp_rep_class_##]")
+                    .commentHeader
+                      span.name [##_rp_rep_name_##]
+                      span.date [##_rp_rep_date_##]
+                      span.trailer
+                        a(href="#" onclick="[##_rp_rep_onclick_delete_##]") 수정,삭제
+                        span  / 
+                        a(href="#" onclick="[##_rp_rep_onclick_reply_##]") 답글
+                    p [##_rp_rep_desc_##]
+                  s_rp2_container
+                    ol
+                      s_rp2_rep
+                        li(id="[##_rp_rep_id_##]")
+                          article(class="[##_rp_rep_class_##]")
+                            .commentHeader
+                              span.name [##_rp_rep_name_##]
+                              span.date [##_rp_rep_date_##]
+                              span.trailer
+                                a(href="#" onclick="[##_rp_rep_onclick_delete_##]") 수정,삭제
+                                span &nbsp;/&nbsp;
+                                a(href="#" onclick="[##_rp_rep_onclick_reply_##]") 답글
+                            p [##_rp_rep_desc_##]
+  s_paging
+    .paging
+      a.btn([##_prev_page_##], class="[##_no_more_prev_##]") ◁
+      s_paging_rep
+        a.btn([##_paging_rep_link_##], class="num") [##_paging_rep_link_num_##]
+      a.btn([##_next_page_##], class="[##_no_more_next_##]") ▷
+block footer
+  div blog is powered by <a href="http://www.tistory.com/">Tistory</a>.
