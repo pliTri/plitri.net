@@ -153,6 +153,27 @@ block content
                                 span &nbsp;/&nbsp;
                                 a(href="#" onclick="[##_rp_rep_onclick_reply_##]") 답글
                             p [##_rp_rep_desc_##]
+  s_article_protected
+    section.article.cage
+      section.mainArticle
+        header
+          h2: a(href="[##_article_rep_link_##]") [##_article_rep_title_##]
+          .trailer
+            span.date [##_article_rep_date_##]
+            a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
+        article
+          p 이 글은 암호가 걸린 글입니다. 암호를 입력해야 볼 수 있습니다.
+          form.article_password
+            label(for="[##_article_password_##]")
+            input(type="password", placeholder="암호를 입력하세요", id="[##_article_password_##]", name="[##_article_password_##]")
+            input.submit(type="submit", value="확인")
+          script.
+            window.addEventListener('load', () => {
+              document.querySelector('form.article_password').addEventListener('submit', (ev) => {
+                ev.preventDefault();
+                [##_article_dissolve_##]
+              });
+            });
   s_paging
     .paging
       a.btn([##_prev_page_##], class="[##_no_more_prev_##]") ◁
